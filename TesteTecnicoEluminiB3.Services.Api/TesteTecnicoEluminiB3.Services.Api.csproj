@@ -150,6 +150,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TesteTecnicoEluminiB3.Application\TesteTecnicoEluminiB3.Application.csproj">
+      <Project>{11960217-f488-4cb9-9f37-8d7d951e01fd}</Project>
+      <Name>TesteTecnicoEluminiB3.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TesteTecnicoEluminiB3.Infra.CrossCutting.IoC\TesteTecnicoEluminiB3.Infra.CrossCutting.IoC.csproj">
+      <Project>{d13fa8d7-a5e9-4496-93d3-e9f8e66a75d5}</Project>
+      <Name>TesteTecnicoEluminiB3.Infra.CrossCutting.IoC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
