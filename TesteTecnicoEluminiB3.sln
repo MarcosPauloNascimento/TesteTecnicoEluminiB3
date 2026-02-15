@@ -7,9 +7,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{02
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{AD4D9DFF-BACA-47CC-9090-8768F86821D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteTecnicoEluminiB3.Services.Api", "TesteTecnicoEluminiB3.Services.Api\TesteTecnicoEluminiB3.Services.Api.csproj", "{5BF9E49D-4161-4048-9445-30B7DE7C2D0C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5BF9E49D-4161-4048-9445-30B7DE7C2D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF9E49D-4161-4048-9445-30B7DE7C2D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF9E49D-4161-4048-9445-30B7DE7C2D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF9E49D-4161-4048-9445-30B7DE7C2D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5BF9E49D-4161-4048-9445-30B7DE7C2D0C} = {AD4D9DFF-BACA-47CC-9090-8768F86821D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F40C118F-A829-48AE-B8BC-5AE8F91CDDD3}
