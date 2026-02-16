@@ -8,19 +8,20 @@ namespace TesteTecnicoEluminiB3.Application.Services
     public class CalculoInvestimentoService : ICalculoInvestimentoService
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly InvestimentoFactory _factory;
 
         public CalculoInvestimentoService(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
 
-        public ResultadoCalculoDTO GetInvestimentCalculation(CalcularInvestimetoDTO investimetCalculatorDTO)
+        public ResultadoCalculoDTO ObterCalculoInvestimento(CalcularInvestimetoDTO calcularInvestimetoDTO)
         {
             var factory = new InvestimentoFactory(_serviceProvider);
 
-            var investmentService = factory.Criar(investimetCalculatorDTO.InvestmentType);
+            var investmentService = factory.Criar(calcularInvestimetoDTO.InvestmentType);
 
-            var result = investmentService.CalcularInvestimento(investimetCalculatorDTO.ValorInicial, investimetCalculatorDTO.Prazo);
+            var result = investmentService.CalcularInvestimento(calcularInvestimetoDTO.ValorInicial, calcularInvestimetoDTO.Prazo);
 
             return ResultadoCalculoMapper.Map(result);
         }

@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using TesteTecnicoEluminiB3.Application.DTOs;
+using TesteTecnicoEluminiB3.Application.Interfaces;
 
 namespace TesteTecnicoEluminiB3.Services.Api.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly ICalculoInvestimentoService _calculoInvestimentoService;
+
+        public ValuesController(ICalculoInvestimentoService calculoInvestimentoService)
+        {
+            _calculoInvestimentoService = calculoInvestimentoService;
+        }
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -22,8 +26,14 @@ namespace TesteTecnicoEluminiB3.Services.Api.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        public IHttpActionResult Post([FromBody] CalcularInvestimetoDTO request)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var resultado = _calculoInvestimentoService.ObterCalculoInvestimento(request);
+
+            return Ok(resultado);
         }
 
         // PUT api/values/5
