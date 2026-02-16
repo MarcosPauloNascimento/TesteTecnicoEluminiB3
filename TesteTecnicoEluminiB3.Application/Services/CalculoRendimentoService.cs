@@ -5,21 +5,18 @@ using TesteTecnicoEluminiB3.Application.Mapper;
 
 namespace TesteTecnicoEluminiB3.Application.Services
 {
-    public class CalculoInvestimentoService : ICalculoInvestimentoService
+    public class CalculoRendimentoService : ICalculoRendimentoService
     {
-        private readonly IServiceProvider _serviceProvider;
         private readonly InvestimentoFactory _factory;
 
-        public CalculoInvestimentoService(IServiceProvider serviceProvider)
+        public CalculoRendimentoService(InvestimentoFactory factory)
         {
-            _serviceProvider = serviceProvider;
+            _factory = factory;
         }
 
         public ResultadoCalculoDTO ObterCalculoInvestimento(CalcularInvestimetoDTO calcularInvestimetoDTO)
         {
-            var factory = new InvestimentoFactory(_serviceProvider);
-
-            var investmentService = factory.Criar(calcularInvestimetoDTO.InvestmentType);
+            var investmentService = _factory.Criar(calcularInvestimetoDTO.InvestmentType);
 
             var result = investmentService.CalcularInvestimento(calcularInvestimetoDTO.ValorInicial, calcularInvestimetoDTO.Prazo);
 
