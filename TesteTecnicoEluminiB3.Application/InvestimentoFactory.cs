@@ -14,21 +14,21 @@ namespace TesteTecnicoEluminiB3.Application
             _serviceProvider = serviceProvider;
         }
 
-        public CalculadoraInvestimentoService Criar(TipoInvestimento investimentType)
+        public ICalculadoraInvestimentoService Criar(TipoInvestimento investimentType)
         {
             switch (investimentType)
             {
                 case TipoInvestimento.CDB:
                     return _serviceProvider.GetService(typeof(CalculadoraInvestimentoCDBService))
-                        as CalculadoraInvestimentoService;
+                        as ICalculadoraInvestimentoService;
 
                 case TipoInvestimento.LCI:
                     return _serviceProvider.GetService(typeof(CalculadoraInvestimentoLCIService))
-                        as CalculadoraInvestimentoService;
+                        as ICalculadoraInvestimentoService;
 
                 case TipoInvestimento.LCA:
                     return _serviceProvider.GetService(typeof(CalculadoraInvestimentoLCAService))
-                        as CalculadoraInvestimentoService;
+                        as ICalculadoraInvestimentoService;
 
                 default:
                     throw new NotImplementedException();

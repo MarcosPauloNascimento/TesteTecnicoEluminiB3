@@ -2,7 +2,7 @@
 
 namespace TesteTecnicoEluminiB3.Domain.Interfaces
 {
-    public interface CalculadoraInvestimentoService
+    public interface ICalculadoraInvestimentoService
     {
         ResultadoCalculadora CalcularInvestimento(decimal valorInicial, int prazo);
     }

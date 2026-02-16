@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\TipoInvestimento.cs" />
-    <Compile Include="Interfaces\CalculadoraInvestimentoService.cs" />
+    <Compile Include="Interfaces\ICalculadoraInvestimentoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalculadoraInvestimentoLCAService.cs" />
     <Compile Include="Services\CalculadoraInvestimentoLCIService.cs" />
