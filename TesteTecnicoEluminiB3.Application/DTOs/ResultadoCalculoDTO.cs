@@ -10,7 +10,7 @@
 
         public decimal ValorImposto { get; set; }
 
-        public decimal Aliquota { get; set; }
+        public decimal AliquotaAplicada { get; set; }
 
     }
 }

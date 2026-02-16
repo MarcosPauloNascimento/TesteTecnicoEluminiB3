@@ -1,7 +1,13 @@
-﻿using System.Web.Http;
+﻿using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
+using System;
+using System.Reflection;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TesteTecnicoEluminiB3.Infra.CrossCutting.IoC;
 
 namespace TesteTecnicoEluminiB3.Services.Api
 {
@@ -15,14 +21,28 @@ namespace TesteTecnicoEluminiB3.Services.Api
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            var builder = new ContainerBuilder();
 
-            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            //builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            //IUnityContainer container = UnityConfig.RegisterComponents();
-            //GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            builder.RegisterModule<DefaultModule>();
 
-            //SwaggerConfig.Register();
+            var container = builder.Build();
 
+            var config = GlobalConfiguration.Configuration;
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
+
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            // Quando acessar a raiz "/", redireciona para o Swagger UI
+            if (Request.AppRelativeCurrentExecutionFilePath == "~/")
+                Response.RedirectPermanent("~/swagger/ui/index", endResponse: true);
+        }
+
     }
 }

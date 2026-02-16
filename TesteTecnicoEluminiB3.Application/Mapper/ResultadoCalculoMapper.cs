@@ -13,7 +13,7 @@ namespace TesteTecnicoEluminiB3.Application.Mapper
                 Rendimento = resultado.Rendimento,
                 ValorLiquido = resultado.ValorLiquido,
                 ValorImposto = resultado.ValorImposto,
-                Aliquota = resultado.Aliquota
+                AliquotaAplicada = resultado.Aliquota
             };
         }
     }

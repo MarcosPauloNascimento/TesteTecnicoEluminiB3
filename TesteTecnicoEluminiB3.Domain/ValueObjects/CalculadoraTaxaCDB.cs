@@ -3,7 +3,7 @@
     public static class CalculadoraTaxaCDB
     {
         // CDI de 0,9% a.m. => 0.009m
-        private const decimal TaxaCDI = 0.009m;
+        private const decimal TaxaCDI = 0.009m; //CDI
 
         // Banco paga 108% do CDI => 1.08m
         private const decimal MultiplicadorBanco = 1.08m; // TB

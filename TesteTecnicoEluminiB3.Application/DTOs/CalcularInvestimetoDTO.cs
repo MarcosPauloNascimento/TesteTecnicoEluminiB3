@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using TesteTecnicoEluminiB3.Domain.Enum;
 
 namespace TesteTecnicoEluminiB3.Application.DTOs
 {
-    public class CalcularInvestimetoDTO
+    public class CalcularInvestimetoDTO : IValidatableObject
     {
         [Required(ErrorMessage = "O valor inicial é obrigatório.")]
         public decimal ValorInicial { get; set; }
@@ -11,6 +12,25 @@ namespace TesteTecnicoEluminiB3.Application.DTOs
         [Required(ErrorMessage = "O prazo é obrigatório.")]
         public int Prazo { get; set; }
 
-        public TipoInvestimento  InvestmentType { get; set; }
+        public TipoInvestimento InvestmentType { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (ValorInicial <= 0)
+            {
+                yield return new ValidationResult(
+                    "O valor inicial deve ser maior que 0.",
+                    new[] { nameof(ValorInicial) }
+                );
+            }
+
+            if (Prazo <= 1)
+            {
+                yield return new ValidationResult(
+                    "O prazo deve ser maior que 1.",
+                    new[] { nameof(Prazo) }
+                );
+            }
+        }
     }
 }

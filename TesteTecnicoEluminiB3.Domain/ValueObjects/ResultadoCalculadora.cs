@@ -2,8 +2,6 @@
 {
     public sealed class ResultadoCalculadora
     {
-        private decimal valorRendimento;
-
         public ResultadoCalculadora(decimal valorBruto, decimal valorRendimento, decimal aliquota)
         {
             ValorBruto = valorBruto;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using TesteTecnicoEluminiB3.Domain.Enum;
 using TesteTecnicoEluminiB3.Domain.Interfaces;
 using TesteTecnicoEluminiB3.Domain.Services;
@@ -7,31 +8,25 @@ namespace TesteTecnicoEluminiB3.Application
 {
     public class InvestimentoFactory
     {
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IComponentContext _ctx;
 
-        public InvestimentoFactory(IServiceProvider serviceProvider)
+        public InvestimentoFactory(IComponentContext ctx)
         {
-            _serviceProvider = serviceProvider;
+            _ctx = ctx;
         }
 
-        public CalculadoraInvestimentoService Criar(TipoInvestimento investimentType)
+        public ICalculadoraInvestimentoService Criar(TipoInvestimento investimentType)
         {
             switch (investimentType)
             {
                 case TipoInvestimento.CDB:
-                    return _serviceProvider.GetService(typeof(CalculadoraInvestimentoCDBService))
-                        as CalculadoraInvestimentoService;
-
+                    return _ctx.Resolve<CalculadoraInvestimentoCDBService>();
                 case TipoInvestimento.LCI:
-                    return _serviceProvider.GetService(typeof(CalculadoraInvestimentoLCIService))
-                        as CalculadoraInvestimentoService;
-
+                    return _ctx.Resolve<CalculadoraInvestimentoLCIService>();
                 case TipoInvestimento.LCA:
-                    return _serviceProvider.GetService(typeof(CalculadoraInvestimentoLCAService))
-                        as CalculadoraInvestimentoService;
-
+                    return _ctx.Resolve<CalculadoraInvestimentoLCAService>();
                 default:
-                    throw new NotImplementedException();
+                    throw new NotSupportedException($"Tipo {investimentType} não suportado.");
             }
         }
     }

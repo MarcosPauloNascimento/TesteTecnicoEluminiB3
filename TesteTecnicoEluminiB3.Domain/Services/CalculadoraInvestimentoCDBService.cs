@@ -4,7 +4,7 @@ using TesteTecnicoEluminiB3.Domain.ValueObjects;
 
 namespace TesteTecnicoEluminiB3.Domain.Services
 {
-    public class CalculadoraInvestimentoCDBService : CalculadoraInvestimentoService
+    public class CalculadoraInvestimentoCDBService : ICalculadoraInvestimentoService
     {
         public ResultadoCalculadora CalcularInvestimento(decimal valorInicial, int prazo)
         {
