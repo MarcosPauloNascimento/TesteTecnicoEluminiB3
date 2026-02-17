@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace TesteTecnicoEluminiB3.Services.Api
 {
-    public class RouteConfig
+    public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {

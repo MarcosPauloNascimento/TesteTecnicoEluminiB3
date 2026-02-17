@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace TesteTecnicoEluminiB3.Services.Api
 {
-    public class FilterConfig
+    public static class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {

@@ -12,15 +12,10 @@ using System.Linq;
 
 namespace TesteTecnicoEluminiB3.Services.Api.App_Start
 {
-    //using Swashbuckle.Application; // EnableSwagger, EnableSwaggerUi
-    //using Swashbuckle.Swagger;    // filtros/customizações
-
-    public class SwaggerConfig
+    public static class SwaggerConfig
     {
         public static void Register()
         {
-            var thisAssembly = typeof(SwaggerConfig).Assembly;
-
             GlobalConfiguration.Configuration
                 .EnableSwagger(c =>
                 {
@@ -41,13 +36,6 @@ namespace TesteTecnicoEluminiB3.Services.Api.App_Start
                     if (File.Exists(xmlPath))
                         c.IncludeXmlComments(xmlPath);
 
-                    // (Opcional) JWT Bearer no header Authorization
-                    //c.ApiKey("JWT")
-                    // .Description("Cabeçalho Authorization usando o esquema Bearer. Ex: 'Bearer {token}'")
-                    // .Name("Authorization")
-                    // .In("header");
-
-                    // (Opcional) Descrição global de segurança
                     c.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                     c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
                 })
