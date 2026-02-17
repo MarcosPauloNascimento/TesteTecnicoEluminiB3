@@ -1,6 +1,6 @@
 ﻿namespace TesteTecnicoEluminiB3.Domain.ValueObjects
 {
-    public static class CalculadoraTaxaCDB
+    public static class CalculadoraTaxaCdb
     {
         // CDI de 0,9% a.m. => 0.009m
         private const decimal TaxaCDI = 0.009m; //CDI

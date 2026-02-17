@@ -1,24 +1,22 @@
-﻿using System;
-using TesteTecnicoEluminiB3.Application.DTOs;
+﻿using TesteTecnicoEluminiB3.Application.DTOs;
 using TesteTecnicoEluminiB3.Application.Interfaces;
 using TesteTecnicoEluminiB3.Application.Mapper;
+using TesteTecnicoEluminiB3.Domain.Interfaces;
 
 namespace TesteTecnicoEluminiB3.Application.Services
 {
     public class CalculoRendimentoService : ICalculoRendimentoService
     {
-        private readonly InvestimentoFactory _factory;
+        private readonly ICalculadoraInvestimentoCdbService _calculadoraInvestimentoService;
 
-        public CalculoRendimentoService(InvestimentoFactory factory)
+        public CalculoRendimentoService(ICalculadoraInvestimentoCdbService calculadoraInvestimentoService)
         {
-            _factory = factory;
+            _calculadoraInvestimentoService = calculadoraInvestimentoService;
         }
 
-        public ResultadoCalculoDTO ObterCalculoInvestimento(CalcularInvestimetoDTO calcularInvestimetoDTO)
+        public ResultadoCalculoDto ObterCalculoInvestimento(CalcularInvestimetoDto calcularInvestimento)
         {
-            var investmentService = _factory.Criar(calcularInvestimetoDTO.InvestmentType);
-
-            var result = investmentService.CalcularInvestimento(calcularInvestimetoDTO.ValorInicial, calcularInvestimetoDTO.Prazo);
+            var result = _calculadoraInvestimentoService.CalcularInvestimento(calcularInvestimento.ValorInicial, calcularInvestimento.Prazo);
 
             return ResultadoCalculoMapper.Map(result);
         }

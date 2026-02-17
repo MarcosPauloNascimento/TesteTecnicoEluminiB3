@@ -22,9 +22,9 @@ namespace TesteTecnicoEluminiB3.Services.Api.Controllers
 
         [HttpPost, Route("")]
         [AllowAnonymous]
-        [SwaggerResponse(200, "Sucesso", typeof(ResultadoCalculoDTO))]
+        [SwaggerResponse(200, "Sucesso", typeof(ResultadoCalculoDto))]
         [SwaggerResponse(404, "Erro")]
-        public IHttpActionResult CalcularRendimento([FromBody] CalcularInvestimetoDTO request)
+        public IHttpActionResult CalcularRendimento([FromBody] CalcularInvestimetoDto request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

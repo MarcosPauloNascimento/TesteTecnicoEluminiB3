@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TesteTecnicoEluminiB3.Domain.ValueObjects
 {
-    public sealed class AliquotaImposto
+    public static class AliquotaImposto
     {
         private static readonly Dictionary<int, decimal> Aliquotas = new Dictionary<int, decimal>
         {
@@ -14,14 +14,9 @@ namespace TesteTecnicoEluminiB3.Domain.ValueObjects
 
         public static decimal ObterAliquota(int prazo)
         {
-            foreach (var x in Aliquotas.Keys.OrderBy(k => k))
-            {
-                if (prazo <= x)
-                    return Aliquotas[x];
-            }
+            var aliquota = Aliquotas.OrderBy(k => k.Key).FirstOrDefault(x => x.Key >= prazo).Value;
 
-            // senão encontrar um prazo específico, aplica a alíquota mais baixa (15%)
-            return 0.15m;
+            return aliquota > 0 ? aliquota : 0.15m;
         }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace TesteTecnicoEluminiB3.Application.DTOs
 {
-    public class ResultadoCalculoDTO
+    public class ResultadoCalculoDto
     {
         public decimal ValorBruto { get; set; }
 

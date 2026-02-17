@@ -67,11 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOs\CalcularInvestimetoDTO.cs" />
-    <Compile Include="DTOs\ResultadoCalculoDTO.cs" />
-    <Compile Include="Enum\InvestimentType.cs" />
+    <Compile Include="DTOs\CalcularInvestimetoDto.cs" />
+    <Compile Include="DTOs\ResultadoCalculoDto.cs" />
     <Compile Include="Interfaces\ICalculoRendimentoService.cs" />
-    <Compile Include="InvestimentoFactory.cs" />
     <Compile Include="Mapper\ResultadoCalculoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalculoRendimentoService.cs" />

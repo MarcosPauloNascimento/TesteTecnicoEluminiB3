@@ -4,11 +4,11 @@ using TesteTecnicoEluminiB3.Domain.ValueObjects;
 
 namespace TesteTecnicoEluminiB3.Domain.Services
 {
-    public class CalculadoraInvestimentoCDBService : ICalculadoraInvestimentoService
+    public class CalculadoraInvestimentoCdbService : ICalculadoraInvestimentoCdbService
     {
         public ResultadoCalculadora CalcularInvestimento(decimal valorInicial, int prazo)
         {
-            var fator = CalculadoraTaxaCDB.ObterFatorMensal();
+            var fator = CalculadoraTaxaCdb.ObterFatorMensal();
 
             var valorBruto = CalcularValorFinal(valorInicial, fator, prazo);
 
@@ -20,7 +20,7 @@ namespace TesteTecnicoEluminiB3.Domain.Services
         }
 
 
-        private decimal CalcularValorFinal(decimal valorInicial, decimal fator, int prazo)
+        private static decimal CalcularValorFinal(decimal valorInicial, decimal fator, int prazo)
         {
             var pot = Math.Pow((double)fator, prazo);
 

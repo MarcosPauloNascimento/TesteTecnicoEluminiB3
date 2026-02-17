@@ -5,9 +5,9 @@ namespace TesteTecnicoEluminiB3.Application.Mapper
 {
     public static class ResultadoCalculoMapper
     {
-        public static ResultadoCalculoDTO Map(this ResultadoCalculadora resultado)
+        public static ResultadoCalculoDto Map(this ResultadoCalculadora resultado)
         {
-            return new ResultadoCalculoDTO
+            return new ResultadoCalculoDto
             {
                 ValorBruto = resultado.ValorBruto,
                 Rendimento = resultado.Rendimento,

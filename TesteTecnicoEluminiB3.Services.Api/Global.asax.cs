@@ -23,7 +23,6 @@ namespace TesteTecnicoEluminiB3.Services.Api
 
             var builder = new ContainerBuilder();
 
-            //builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterModule<DefaultModule>();

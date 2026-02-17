@@ -4,6 +4,6 @@ namespace TesteTecnicoEluminiB3.Application.Interfaces
 {
     public interface ICalculoRendimentoService
     {
-        ResultadoCalculoDTO ObterCalculoInvestimento(CalcularInvestimetoDTO calcularInvestimentoDTO);
+        ResultadoCalculoDto ObterCalculoInvestimento(CalcularInvestimetoDto calcularInvestimento);
     }
 }
