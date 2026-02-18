@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SimulacaoRendimentoResponse } from '../../models/simulacao-rendimento-response.model';
 import { CalculadoraService } from '../../services/calculadora.service';
@@ -15,7 +15,9 @@ export class CalculadoraInvestimentoComponent {
   carregando = false;
   mensagemErro = '';
   resultado: SimulacaoRendimentoResponse | null = null;
-  constructor(private calculadoraService: CalculadoraService ) { }
+  valorInicial = 0;
+  prazo = 0;
+  constructor(private calculadoraService: CalculadoraService, private cd: ChangeDetectorRef ) { }
 
   formulario = this.fb.group({
     valorInicial: [null, [Validators.required, Validators.min(0.01)]],
@@ -26,14 +28,14 @@ export class CalculadoraInvestimentoComponent {
     this.mensagemErro = '';
     this.resultado = null;
 
+    
+
     if (this.formulario.invalid) {
       this.formulario.markAsTouched();
       return;
     }
 
     this.carregando = true;
-
-    const simulacao = this.formulario.getRawValue();
 
     const request: SimulacaoRendimentoRequest = {
       valorInicial: Number(this.formulario.getRawValue().valorInicial),
@@ -44,6 +46,10 @@ export class CalculadoraInvestimentoComponent {
       next: (res) => {
         this.resultado = res;
         this.carregando = false;
+        this.valorInicial = Number(this.formulario.getRawValue().valorInicial);
+        this.prazo = Number(this.formulario.getRawValue().prazo)
+        this.formulario.reset();
+        this.cd.detectChanges();
       },
       error: () => {
         this.mensagemErro = 'Não foi possível realiar simulação. Tente novamente.';

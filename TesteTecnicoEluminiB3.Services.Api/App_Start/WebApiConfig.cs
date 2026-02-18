@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace TesteTecnicoEluminiB3.Services.Api
 {
@@ -9,6 +10,10 @@ namespace TesteTecnicoEluminiB3.Services.Api
     {
         public static void Register(HttpConfiguration config)
         {
+            var cors = new EnableCorsAttribute("http://localhost:55318", "*", "*");
+
+            config.EnableCors(cors);
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

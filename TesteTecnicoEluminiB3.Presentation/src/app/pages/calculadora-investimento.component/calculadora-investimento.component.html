@@ -40,18 +40,18 @@
     <span>Calculando...</span>
   </div>
 
-  <p class="erro global" *ngIf="!carregando && mensagemErro">{{ mensagemErro }}</p>
+  <p class="erro global" *ngIf="mensagemErro">{{ mensagemErro }}</p>
 
-  <div class="resultado" *ngIf="!carregando && resultado">
-    <h2>Resultado</h2>
+  <div class="resultado" *ngIf="resultado">
+    <h3>Exibindo resultado para valor inicial = {{ valorInicial }} e prazo = {{ prazo }}</h3>
     <div class="grade">
       <div class="bloco">
         <span class="rotulo">Valor Bruto: </span>
-        <strong class="valor">{{resultado?.valorBruto | currency: 'BRL':'symbol-narrow':'1.2-2' }}</strong>
+        <strong class="valor">{{ resultado?.valorBruto }}</strong>
       </div>
       <div class="bloco">
         <span class="rotulo">Valor Líquido: </span>
-        <strong class="valor sucesso">{{resultado?.valorLiquido| currency: 'BRL':'symbol-narrow':'1.2-2' }}</strong>
+        <strong class="valor sucesso">{{ resultado?.valorLiquido }}</strong>
       </div>
     </div>
   </div>
