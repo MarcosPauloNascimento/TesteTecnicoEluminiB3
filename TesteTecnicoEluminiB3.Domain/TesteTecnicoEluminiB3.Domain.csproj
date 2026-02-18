@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\TipoInvestimento.cs" />
     <Compile Include="Interfaces\ICalculadoraInvestimentoCdbService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CalculadoraInvestimentoCdbService.cs" />

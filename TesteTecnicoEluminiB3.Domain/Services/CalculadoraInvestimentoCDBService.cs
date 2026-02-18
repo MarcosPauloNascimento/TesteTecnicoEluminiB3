@@ -16,7 +16,7 @@ namespace TesteTecnicoEluminiB3.Domain.Services
 
             var aliquota = AliquotaImposto.ObterAliquota(prazo);
 
-            return new ResultadoCalculadora(valorBruto, rendimento, aliquota);
+            return ResultadoCalculadora.ResultadoRendimentoCDB(valorBruto, rendimento, aliquota);
         }
 
 

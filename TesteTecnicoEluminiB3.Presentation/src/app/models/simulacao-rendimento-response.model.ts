@@ -6,4 +6,5 @@ export interface SimulacaoRendimentoResponse {
   aliquotaAplicada: string;
   valorInicial: string;
   prazo: number;
+  tipoInvestimento: string;
 }

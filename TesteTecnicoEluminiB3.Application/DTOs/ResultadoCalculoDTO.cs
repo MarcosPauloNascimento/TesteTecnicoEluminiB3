@@ -16,5 +16,7 @@
 
         public int Prazo { get; set; }
 
+        public string TipoInvestimento { get; set; }
+
     }
 }

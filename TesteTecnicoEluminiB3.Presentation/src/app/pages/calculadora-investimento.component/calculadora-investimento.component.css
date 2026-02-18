@@ -98,6 +98,10 @@ button:disabled {
   margin-top: 20px;
 }
 
+.center {
+  text-align: center;
+}
+
 .grade {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -124,6 +128,3 @@ button:disabled {
   .valor.sucesso {
     color: #1b5e20;
   }
-
-css.txt
-Exibindo css.txt.

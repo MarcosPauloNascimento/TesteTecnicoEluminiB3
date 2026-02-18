@@ -13,9 +13,10 @@ namespace TesteTecnicoEluminiB3.Application.Mapper
                 Rendimento = $"R$ {resultado.Rendimento:F2}",
                 ValorLiquido = $"R$ {resultado.ValorLiquido:F2}",
                 ValorImposto = $"R$ {resultado.ValorImposto:F2}",
-                AliquotaAplicada = $"R$ {resultado.Aliquota:F2}",
+                AliquotaAplicada = $"{decimal.Round((resultado.Aliquota * 100), 2)}%",
                 ValorInicial = $"R$ {calcularInvestimento.ValorInicial:F2}",
-                Prazo = calcularInvestimento.Prazo
+                Prazo = calcularInvestimento.Prazo,
+                TipoInvestimento = resultado.TipoInvestimento.ToString()
             };
         }
     }
