@@ -1,0 +1,59 @@
+<section class="cartao">
+  <h1>Calculadora de Investimento</h1>
+  <p class="subtitulo">
+    Informe o valor inicial e o prazo (em meses) para obter a simulação com os valores.
+  </p>
+
+  <form [formGroup]="formulario" (ngSubmit)="enviar()" novalidate>
+    <div class="linha-form">
+      <label for="valorInicial"> Valor Inicial: </label>
+      <input id="valorInicial"
+             type="number"
+             step="0.01"
+             min="0.01"
+             formControlName="valorInicial"
+             placeholder="Ex.: 1000,00" />
+      <small class="erro" *ngIf="f.valorInicial.touched && f.valorInicial.errors">
+        <ng-container *ngIf="f.valorInicial.errors['required']">Campo obrigatório.</ng-container>
+        <ng-container *ngIf="f.valorInicial.errors['min']">O valor deve ser maior do que zero.</ng-container>
+      </small>
+    </div>
+    <div class="linha-form">
+      <label for="prazo">Prazo (meses)</label>
+      <input id="prazo"
+             type="number"
+             min="2"
+             step="1"
+             formControlName="prazo"
+             placeholder="Ex.: 12" />
+      <small class="erro" *ngIf="f.prazo.touched && f.prazo.errors">
+        <ng-container *ngIf="f.prazo.errors['required']">Campo obrigatório</ng-container>
+        <ng-container *ngIf="f.prazo.errors['min']">A quantidade de meses deve ser maior que um</ng-container>
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="carregando || formulario.invalid">Calcular</button>
+  </form>
+
+  <div class="status" *ngIf="carregando">
+    <span class="spinner" aria-hidden="true"></span>
+    <span>Calculando...</span>
+  </div>
+
+  <p class="erro global" *ngIf="!carregando && mensagemErro">{{ mensagemErro }}</p>
+
+  <div class="resultado" *ngIf="!carregando && resultado">
+    <h2>Resultado</h2>
+    <div class="grade">
+      <div class="bloco">
+        <span class="rotulo">Valor Bruto: </span>
+        <strong class="valor">{{resultado?.valorBruto | currency: 'BRL':'symbol-narrow':'1.2-2' }}</strong>
+      </div>
+      <div class="bloco">
+        <span class="rotulo">Valor Líquido: </span>
+        <strong class="valor sucesso">{{resultado?.valorLiquido| currency: 'BRL':'symbol-narrow':'1.2-2' }}</strong>
+      </div>
+    </div>
+  </div>
+
+</section>

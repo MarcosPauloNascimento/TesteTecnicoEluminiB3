@@ -9,7 +9,7 @@ namespace TesteTecnicoEluminiB3.Services.Api.Controllers
     /// <summary>
     /// Controla operações de clientes.
     /// </summary>
-    [RoutePrefix("api/CalculadoraInvestimento")]
+    [RoutePrefix("api/calculadora-investimento")]
     public class CalculadoraInvestimentoController : ApiController
     {
         private readonly ICalculoRendimentoService _calculoInvestimentoService;
@@ -20,7 +20,7 @@ namespace TesteTecnicoEluminiB3.Services.Api.Controllers
         }
 
 
-        [HttpPost, Route("")]
+        [HttpPost, Route("cdb")]
         [AllowAnonymous]
         [SwaggerResponse(200, "Sucesso", typeof(ResultadoCalculoDto))]
         [SwaggerResponse(404, "Erro")]
