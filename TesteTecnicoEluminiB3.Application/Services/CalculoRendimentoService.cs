@@ -18,7 +18,7 @@ namespace TesteTecnicoEluminiB3.Application.Services
         {
             var result = _calculadoraInvestimentoService.CalcularInvestimento(calcularInvestimento.ValorInicial, calcularInvestimento.Prazo);
 
-            return ResultadoCalculoMapper.Map(result);
+            return ResultadoCalculoMapper.Map(result, calcularInvestimento);
         }
     }
 }

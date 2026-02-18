@@ -2,15 +2,19 @@
 {
     public class ResultadoCalculoDto
     {
-        public decimal ValorBruto { get; set; }
+        public string ValorBruto { get; set; }
 
-        public decimal Rendimento { get; set; }
+        public string Rendimento { get; set; }
 
-        public decimal ValorLiquido { get; set; }
+        public string ValorLiquido { get; set; }
 
-        public decimal ValorImposto { get; set; }
+        public string ValorImposto { get; set; }
 
-        public decimal AliquotaAplicada { get; set; }
+        public string AliquotaAplicada { get; set; }
+
+        public string ValorInicial { get; set; }
+
+        public int Prazo { get; set; }
 
     }
 }

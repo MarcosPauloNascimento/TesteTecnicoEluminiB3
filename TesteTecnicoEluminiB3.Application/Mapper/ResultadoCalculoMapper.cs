@@ -5,15 +5,17 @@ namespace TesteTecnicoEluminiB3.Application.Mapper
 {
     public static class ResultadoCalculoMapper
     {
-        public static ResultadoCalculoDto Map(this ResultadoCalculadora resultado)
+        public static ResultadoCalculoDto Map(this ResultadoCalculadora resultado, CalcularInvestimetoDto calcularInvestimento)
         {
             return new ResultadoCalculoDto
             {
-                ValorBruto = resultado.ValorBruto,
-                Rendimento = resultado.Rendimento,
-                ValorLiquido = resultado.ValorLiquido,
-                ValorImposto = resultado.ValorImposto,
-                AliquotaAplicada = resultado.Aliquota
+                ValorBruto = $"R$ {resultado.ValorBruto:F2}",
+                Rendimento = $"R$ {resultado.Rendimento:F2}",
+                ValorLiquido = $"R$ {resultado.ValorLiquido:F2}",
+                ValorImposto = $"R$ {resultado.ValorImposto:F2}",
+                AliquotaAplicada = $"R$ {resultado.Aliquota:F2}",
+                ValorInicial = $"R$ {calcularInvestimento.ValorInicial:F2}",
+                Prazo = calcularInvestimento.Prazo
             };
         }
     }

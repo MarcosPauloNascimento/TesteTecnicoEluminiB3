@@ -15,8 +15,7 @@ export class CalculadoraInvestimentoComponent {
   carregando = false;
   mensagemErro = '';
   resultado: SimulacaoRendimentoResponse | null = null;
-  valorInicial = 0;
-  prazo = 0;
+  
   constructor(private calculadoraService: CalculadoraService, private cd: ChangeDetectorRef ) { }
 
   formulario = this.fb.group({
@@ -46,8 +45,6 @@ export class CalculadoraInvestimentoComponent {
       next: (res) => {
         this.resultado = res;
         this.carregando = false;
-        this.valorInicial = Number(this.formulario.getRawValue().valorInicial);
-        this.prazo = Number(this.formulario.getRawValue().prazo)
         this.formulario.reset();
         this.cd.detectChanges();
       },
