@@ -43,33 +43,33 @@
   <p class="erro global" *ngIf="mensagemErro">{{ mensagemErro }}</p>
 
   <div class="resultado" *ngIf="resultado">
-    <h4 class="center">Resultado Simulação de Rendimento {{ resultado?.tipoInvestimento }}</h4>
+    <h4 class="center">Resultado Simulação de Rendimento {{ resultado.tipoInvestimento }}</h4>
     <p class="subtitulo">
-      Aporte Inicial: {{ resultado?.valorInicial }}
+      Aporte Inicial: {{ resultado.valorInicial }}
     </p>
     <p class="subtitulo">
-      Prazo {{ resultado?.prazo }} meses.
+      Prazo {{ resultado.prazo }} meses.
     </p>
     <div class="grade">
       <div class="bloco">
         <span class="rotulo">Valor Bruto: </span>
-        <strong class="valor">{{ resultado?.valorBruto }}</strong>
+        <strong class="valor">{{ resultado.valorBruto }}</strong>
       </div>
       <div class="bloco">
         <span class="rotulo">Rendimento Bruto: </span>
-        <strong class="valor sucesso">{{ resultado?.rendimento }}</strong>
+        <strong class="valor sucesso">{{ resultado.rendimento }}</strong>
       </div>
       <div class="bloco">
         <span class="rotulo">Valor Imposto: </span>
-        <strong class="valor">{{ resultado?.valorImposto }}</strong>
+        <strong class="valor">{{ resultado.valorImposto }}</strong>
       </div>
       <div class="bloco">
         <span class="rotulo">Valor Líquido: </span>
-        <strong class="valor sucesso">{{ resultado?.valorLiquido }}</strong>
+        <strong class="valor sucesso">{{ resultado.valorLiquido }}</strong>
       </div>
       <div class="bloco">
         <span class="rotulo">Aliquota Aplicada: </span>
-        <strong class="valor">{{ resultado?.aliquotaAplicada }}</strong>
+        <strong class="valor">{{ resultado.aliquotaAplicada }}</strong>
       </div>
     </div>
   </div>

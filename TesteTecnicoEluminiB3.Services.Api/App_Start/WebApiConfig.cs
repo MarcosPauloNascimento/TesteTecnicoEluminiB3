@@ -10,7 +10,7 @@ namespace TesteTecnicoEluminiB3.Services.Api
     {
         public static void Register(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute("http://localhost:55318", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
 
             config.EnableCors(cors);
 
