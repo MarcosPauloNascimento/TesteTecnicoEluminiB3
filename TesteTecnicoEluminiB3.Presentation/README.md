@@ -1,59 +1,121 @@
-# TesteTecnicoEluminiB3Presentation
+# 📌 TesteTecnicoEluminiB3
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Projeto desenvolvido como teste técnico contendo:
 
-## Development server
+-   🔹 Backend em .NET Framework 4.8 (Web API)
+-   🔹 Camada de Application/Domain com regra de negócio
+-   🔹 Frontend em Angular
+-   🔹 Testes unitários com xUnit
 
-To start a local development server, run:
+------------------------------------------------------------------------
 
-```bash
-ng serve
-```
+# 📁 Estrutura da Solução
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+TesteTecnicoEluminiB3 
+│
+├── TesteTecnicoEluminiB3.Services.Api → API Web (.NET Framework 4.8) 
+├── TesteTecnicoEluminiB3.Application → Regras de negócio 
+├── TesteTecnicoEluminiB3.Tests → Testes unitários (xUnit) 
+└── frontend (Angular) → Interface do usuário
 
-## Code scaffolding
+------------------------------------------------------------------------
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# ✅ Requisitos
 
-```bash
-ng generate component component-name
-```
+## Backend
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+-   Visual Studio 2019 ou superior
+-   .NET Framework 4.8
+-   NuGet restore habilitado
 
-```bash
-ng generate --help
-```
+## Frontend
 
-## Building
+-   Node.js (v16+ recomendado)
+-   Angular CLI
+-   npm ou yarn
 
-To build the project run:
+------------------------------------------------------------------------
 
-```bash
-ng build
-```
+# 🌐 Como Executar o Frontend (Angular)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1.  Abra o terminal na pasta raiz do seu projeto Angular - seuRepositório/TesteTecnicoEluminiB3\TesteTecnicoEluminiB3.Presentation
 
-## Running unit tests
+2.  Instale as dependências: npm install
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+------------------------------------------------------------------------
 
-```bash
+# 🚀 Como Executar o Backend
+
+1.  Abra a solução no Visual Studio
+2.  Clique com botão direito na solução e selecione propriedades
+3.  Marque a opção 'Vários projetos de inicialização'
+4.  Defina os projetos como Startup Project na ordem abaixo:
+    TesteTecnicoEluminiB3.Presentation
+    TesteTecnicoEluminiB3.Services.Api
+5.  Execute: Ctrl + F5 ou F5
+
+A API será iniciada localmente (normalmente via IIS Express).
+
+------------------------------------------------------------------------
+
+# 🧪 Como Executar os Testes (xUnit)
+
+O projeto de testes é: TesteTecnicoEluminiB3.Tests
+
+### Via Visual Studio:
+
+1.  Vá em Test Explorer
+2.  Clique em Run All
+
+### Via CLI (opcional):
+
+dotnet test
+
+Certifique-se de que os pacotes estão instalados: - xunit -
+xunit.runner.visualstudio - Microsoft.NET.Test.Sdk
+
+------------------------------------------------------------------------
+
+# 🧪 Testes do Angular
+
+Para executar testes unitários:
+Abra o terminal na pasta raiz do seu projeto Angular e digite:
 ng test
-```
 
-## Running end-to-end tests
+Isso executará os testes com Karma + Jasmine.
 
-For end-to-end (e2e) testing, run:
+------------------------------------------------------------------------
 
-```bash
-ng e2e
-```
+# 📌 Funcionalidade Principal
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+O sistema realiza: 
+- Cálculo de rendimento de investimento CDB 
+- Cálculo de valor bruto 
+- Cálculo de valor líquido com aplicação de imposto
+regressivo
 
-## Additional Resources
+------------------------------------------------------------------------
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# 🧠 Arquitetura Utilizada
+
+-   Separação por camadas
+-   Application Layer com regra de negócio
+-   API apenas como camada de exposição
+-   Injeção de dependência
+-   Testes unitários isolando regras de negócio
+-   Estrutura preparada para futura migração para .NET 6+
+
+------------------------------------------------------------------------
+
+# 📈 Possíveis Melhorias
+
+-   Adicionar testes de integração
+-   Adicionar validação mais robusta de DTOs
+-   Melhorar cobertura de testes Angular
+-   Adicionar pipeline CI/CD
+
+------------------------------------------------------------------------
+
+# 👨‍💻 Autor
+Marcos Paulo do Nascimento
+Projeto desenvolvido como parte de avaliação técnica.
