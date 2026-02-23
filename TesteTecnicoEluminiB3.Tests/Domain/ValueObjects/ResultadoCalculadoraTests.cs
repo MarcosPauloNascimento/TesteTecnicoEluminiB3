@@ -1,5 +1,6 @@
 ﻿using Xunit;
 using TesteTecnicoEluminiB3.Domain.ValueObjects;
+﻿using TesteTecnicoEluminiB3.Domain.Enum;
 
 namespace TesteTecnicoEluminiB3.Tests.Domain.ValueObjects
 {
@@ -11,7 +12,8 @@ namespace TesteTecnicoEluminiB3.Tests.Domain.ValueObjects
             var resultado = new ResultadoCalculadora(
                 valorBruto: 1100.001m,
                 valorRendimento: 100.0009m,
-                aliquota: 0.20m);
+                aliquota: 0.20m,
+                TipoInvestimento.CDB);
 
             // ValorImposto = round(100.0009 * 0.20, 2) = 20.00
             Assert.Equal(20.00m, resultado.ValorImposto);
