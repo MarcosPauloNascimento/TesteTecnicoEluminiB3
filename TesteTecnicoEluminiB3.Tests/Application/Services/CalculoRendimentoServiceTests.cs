@@ -4,6 +4,7 @@ using TesteTecnicoEluminiB3.Application.Services;
 using TesteTecnicoEluminiB3.Domain.Interfaces;
 using TesteTecnicoEluminiB3.Domain.ValueObjects;
 using Xunit;
+﻿using TesteTecnicoEluminiB3.Domain.Enum;
 
 namespace TesteTecnicoEluminiB3.Tests.Application.Services
 {
@@ -22,7 +23,7 @@ namespace TesteTecnicoEluminiB3.Tests.Application.Services
             };
 
             // Simulamos o que o serviço de cálculo (CDB) deve retornar
-            var retornoEsperadoDaCalculadora = new ResultadoCalculadora(1100, 100, 0.225m);
+            var retornoEsperadoDaCalculadora = new ResultadoCalculadora(1100m, 100, 0.225m, TipoInvestimento.CDB);
 
             mockCalculadora
                 .Setup(x => x.CalcularInvestimento(dtoEntrada.ValorInicial, dtoEntrada.Prazo))
@@ -36,7 +37,7 @@ namespace TesteTecnicoEluminiB3.Tests.Application.Services
             // Assert (Verificação)
             Assert.NotNull(resultado);
             // Aqui você verifica se o Mapper funcionou (supondo que o DTO de saída tenha ValorBruto)
-            Assert.Equal(1100, resultado.ValorBruto);
+            Assert.Equal("R$ 1100,00", resultado.ValorBruto);
 
             // Verifica se a calculadora foi chamada exatamente uma vez com os parâmetros corretos
             mockCalculadora.Verify(x => x.CalcularInvestimento(1000, 12), Times.Once);
